@@ -1,22 +1,21 @@
 # TCP & UDP
 
-### 1: TCPBegynder | TCPTimeout | UDPBegynder
+### 1 - TCPBegynder | TCPTimeout | UDPBegynder
 #
 
-### 2: GuessNumber
+### 2 - GuessNumber
 #
 
-### 3: TrashTalk
+### 3 - TrashTalk
 #
 
-### 4: BeskedHistorik
+### 4 - BeskedHistorik
 #
 
-### 5: KrypteretKommunikation
+### 5 - KrypteretKommunikation
 #
 
-### 6: UDPvsTCP
+### 6 - UDPvsTCP
 #
 
-### 7: Protocol
-#
+### 7 - Protocol
