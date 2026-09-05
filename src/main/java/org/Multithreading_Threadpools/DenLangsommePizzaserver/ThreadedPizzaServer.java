@@ -1,4 +1,4 @@
-package org.Multithreading_Threadpools.DenLangesommePizzaserver;
+package org.Multithreading_Threadpools.DenLangsommePizzaserver;
 
 import java.io.IOException;
 import java.net.ServerSocket;

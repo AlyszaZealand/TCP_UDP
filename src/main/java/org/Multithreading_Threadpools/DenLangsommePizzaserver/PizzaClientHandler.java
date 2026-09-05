@@ -1,66 +1,58 @@
-package org.Multithreading_Threadpools.DenLangesommePizzaserver;
+package org.Multithreading_Threadpools.DenLangsommePizzaserver;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 
-public class SequentialPizzaServer {
+/*
+ * Denne klasse håndterer præcis én klient.
+ *
+ * Den implementerer Runnable.
+ *
+ * Runnable betyder:
+ * "Dette objekt beskriver en opgave, der kan udføres."
+ *
+ * Runnable betyder IKKE:
+ * "Der bliver automatisk lavet en ny tråd."
+ */
+public class PizzaClientHandler implements Runnable {
 
-    private static final int PORT = 5000;
-
-    // Vi lader med vilje en pizza tage lang tid.
-    // Det gør problemet med den sekventielle server tydeligt.
     private static final long PIZZA_TIME_MS = 10_000;
 
-    public static void main(String[] args) {
+    private final Socket clientSocket;
 
-        System.out.println(
-                "Mario's langsomme pizzaserver starter på port " + PORT
-        );
+    public PizzaClientHandler(Socket clientSocket) {
 
-        try (ServerSocket serverSocket = new ServerSocket(PORT)) {
-
-            while (true) {
-
-                System.out.println("Venter på næste kunde...");
-
-                /*
-                 * accept() blokerer, indtil en klient forbinder.
-                 */
-                Socket clientSocket = serverSocket.accept();
-
-                System.out.println(
-                        "Ny kunde: "
-                                + clientSocket.getRemoteSocketAddress()
-                );
-
-                /*
-                 * PROBLEMET:
-                 *
-                 * Main-tråden håndterer selv hele klienten.
-                 *
-                 * Så længe handleClient() arbejder,
-                 * kommer serveren ikke tilbage til accept().
-                 */
-                handleClient(clientSocket);
-            }
-
-        } catch (IOException exception) {
-
-            System.out.println(
-                    "Serverfejl: " + exception.getMessage()
-            );
-        }
+        this.clientSocket = clientSocket;
     }
 
-    private static void handleClient(Socket clientSocket) {
+    @Override
+    public void run() {
+
+        /*
+         * Nu kan vi se, hvilken tråd der
+         * faktisk udfører denne handler.
+         */
+        String threadName =
+                Thread.currentThread().getName();
+
+        System.out.printf(
+                "[%s] Starter kunde %s%n",
+                threadName,
+                clientSocket.getRemoteSocketAddress()
+        );
 
         try (
+                /*
+                 * ClientHandler har fået socketen.
+                 *
+                 * Handleren har derfor også ansvaret
+                 * for at lukke den.
+                 */
                 Socket socket = clientSocket;
 
                 BufferedReader reader =
@@ -84,10 +76,6 @@ public class SequentialPizzaServer {
             String request;
 
             while ((request = reader.readLine()) != null) {
-
-                System.out.println(
-                        "Kunden sendte: " + request
-                );
 
                 if ("QUIT".equalsIgnoreCase(request)) {
 
@@ -113,15 +101,17 @@ public class SequentialPizzaServer {
                             "ORDER_RECEIVED|" + pizza
                     );
 
-                    System.out.println(
-                            "Mario laver " + pizza
+                    System.out.printf(
+                            "[%s] Laver %s...%n",
+                            threadName,
+                            pizza
                     );
 
                     /*
-                     * Vi simulerer, at pizzaen tager
-                     * 10 sekunder at lave.
+                     * Kun denne klienttråd sover.
                      *
-                     * Main-tråden er blokeret imens.
+                     * Serverens main-tråd kan stadig
+                     * acceptere nye klienter.
                      */
                     Thread.sleep(PIZZA_TIME_MS);
 
@@ -129,8 +119,10 @@ public class SequentialPizzaServer {
                             "READY|" + pizza
                     );
 
-                    System.out.println(
-                            pizza + " er klar"
+                    System.out.printf(
+                            "[%s] %s er klar%n",
+                            threadName,
+                            pizza
                     );
 
                 } else {
@@ -143,22 +135,25 @@ public class SequentialPizzaServer {
 
         } catch (InterruptedException exception) {
 
-            /*
-             * Hvis tråden bliver interrupted,
-             * gendanner vi interrupt-status.
-             */
             Thread.currentThread().interrupt();
 
-            System.out.println(
-                    "Pizzabagningen blev afbrudt"
+            System.out.printf(
+                    "[%s] Arbejdet blev afbrudt%n",
+                    threadName
             );
 
         } catch (IOException exception) {
 
-            System.out.println(
-                    "Fejl hos klient: "
-                            + exception.getMessage()
+            System.out.printf(
+                    "[%s] Klientfejl: %s%n",
+                    threadName,
+                    exception.getMessage()
             );
         }
+
+        System.out.printf(
+                "[%s] Kunden er færdig%n",
+                threadName
+        );
     }
 }
