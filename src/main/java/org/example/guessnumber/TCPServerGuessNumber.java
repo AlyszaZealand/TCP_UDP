@@ -1,8 +1,8 @@
-package org.example.guess;
+package org.example.guessnumber;
 import java.io.*;
 import java.net.*;
 
-public class TCPServerGuess {
+public class TCPServerGuessNumber {
     public static void main(String[] args) {
         try (ServerSocket serverSocket = new ServerSocket(5000)) {
             System.out.println("Server is listening on port 5000");

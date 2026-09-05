@@ -1,9 +1,9 @@
-package org.example.guess;
+package org.example.guessnumber;
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;
 
-public class TCPClientGuess {
+public class TCPClientGuessNumber {
     public static void main(String[] args) {
         String hostname = "localhost";
         int port = 5000;
