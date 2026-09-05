@@ -1,4 +1,4 @@
-package org.example.beskedhistorik;
+package org.example.BeskedHistorik;
 
 import java.io.IOException;
 import java.net.ServerSocket;

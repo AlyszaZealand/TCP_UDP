@@ -1,4 +1,4 @@
-package org.example.trashtalk;
+package org.example.TrashTalk;
 
 import java.io.IOException;
 import java.net.DatagramPacket;

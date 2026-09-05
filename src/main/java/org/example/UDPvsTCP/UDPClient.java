@@ -1,8 +1,7 @@
-package org.example.udpvstcp;
+package org.example.UDPvsTCP;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.net.InetAddress;
 import java.util.Scanner;
 
 public class UDPClient {

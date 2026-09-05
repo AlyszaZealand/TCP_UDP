@@ -1,4 +1,4 @@
-package org.example.protocol;
+package org.example.Protocol;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;

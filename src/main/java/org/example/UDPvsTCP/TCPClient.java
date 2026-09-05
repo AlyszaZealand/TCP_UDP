@@ -1,4 +1,4 @@
-package org.example.udpvstcp;
+package org.example.UDPvsTCP;
 
 import java.io.PrintWriter;
 import java.net.Socket;

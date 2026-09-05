@@ -1,4 +1,4 @@
-package org.example.udpvstcp;
+package org.example.UDPvsTCP;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;

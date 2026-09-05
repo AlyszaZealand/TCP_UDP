@@ -1,4 +1,4 @@
-package org.example.krypteretkommunikation;
+package org.example.KrypteretKommunikation;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

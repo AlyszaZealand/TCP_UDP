@@ -1,4 +1,4 @@
-package org.example.guessnumber;
+package org.example.GuessNumber;
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;

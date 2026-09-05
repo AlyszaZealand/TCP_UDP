@@ -1,4 +1,4 @@
-package org.example.protocol;
+package org.example.Protocol;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
