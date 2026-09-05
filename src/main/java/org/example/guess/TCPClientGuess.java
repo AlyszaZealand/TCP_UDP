@@ -14,9 +14,33 @@ public class TCPClientGuess {
 
             Scanner scanner = new Scanner(System.in);
 
-            writer.println("Hello Server");
-            String response = reader.readLine();
-            System.out.println("Server response: " + response);
+            // Modtager serverens instruktion ("Gæt 1 - 10")
+            System.out.println("Server: " + reader.readLine());
+
+            boolean correctGuess = false;
+            while (!correctGuess) {
+                System.out.print("Your guess: ");
+                String input = scanner.nextLine();
+
+
+                int guess;
+                try {
+                    guess = Integer.parseInt(input.trim());
+                } catch (NumberFormatException e) {
+                    System.out.println("Please enter a valid number.");
+                    continue; // spring tilbage til starten af løkken
+                }
+
+                writer.println(guess); // Send gættet til serveren
+
+                String response = reader.readLine(); // vent på serverens svar
+                System.out.println("Server response: " + response);
+
+                if (response.startsWith("Correct!")) {
+                    correctGuess = true;
+                }
+            }
+            System.out.println("Game over. Thanks for playing!");
         } catch (IOException ex) {
             ex.printStackTrace();
         }
