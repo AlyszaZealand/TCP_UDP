@@ -24,7 +24,7 @@
 
 ### 11 - ThreadPool (max 5 users connected)
 
-### 12 - FejlhåndteringOgRessourcestyring
+### 12 - Logging (Fejlhåndtering Og Ressourcestyring)
 
 ### 13 - FTPapp (C:\Temp\Srv\test.txt) downloads to (C:\Temp\klient\test.txt)
 
