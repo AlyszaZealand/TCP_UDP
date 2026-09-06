@@ -20,8 +20,12 @@
 
 # Multi-threading & Thread-pools
 
-### 10 - DenLangsommePizzaserver
+### 10 MultithreadedServer (Same Client & Handler, Different Server)
 
-### 11 - KaffebarenMedToBaristaer
+### 11 ThreadPoolDemo (Same Client & Handler, Different Server)
 
-### 12 - DenDramatiskeKlient
+### 12 - DenLangsommePizzaserver
+
+### 13 - KaffebarenMedToBaristaer
+
+### 14 - DenDramatiskeKlient
