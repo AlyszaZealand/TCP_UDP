@@ -20,12 +20,16 @@
 
 # Multi-threading & Thread-pools
 
-### 10 MultithreadedServer (Same Client & Handler, Different Server)
+### 10 - MultithreadedServer (Same Client & Handler, Different Server)
 
-### 11 ThreadPoolDemo (Same Client & Handler, Different Server)
+### 11 - ThreadPoolDemo (Same Client & Handler, Different Server)
 
-### 12 - DenLangsommePizzaserver
+### 12 - FejlhåndteringOgRessourcestyring
 
-### 13 - KaffebarenMedToBaristaer
+### 13 - FTPapp (C:\Temp\Srv\test.txt) downloads to (C:\Temp\klient\test.txt)
 
-### 14 - DenDramatiskeKlient
+### 14 - DenLangsommePizzaserver
+
+### 15 - KaffebarenMedToBaristaer
+
+### 16 - DenDramatiskeKlient
