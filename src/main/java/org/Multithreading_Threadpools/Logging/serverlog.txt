@@ -1,0 +1,5 @@
+2026-09-06T13:15:33.830923400 | Server startet
+2026-09-06T13:15:36.310933200 | Klient forbundet: /127.0.0.1:58386
+2026-09-06T13:15:39.368414600 | Modtaget: Greetings
+2026-09-06T13:15:41.100893100 | Modtaget: stop
+2026-09-06T13:15:41.101894500 | Klient lukkede selv forbindelsen
