@@ -26,7 +26,7 @@
 
 ### 12 - FejlhåndteringOgRessourcestyring
 
-### 13 - FTPapp
+### 13 - FTPapp (C:\Temp\Srv\test.txt) downloads to (C:\Temp\klient\test.txt)
 
 ### 14 - DenLangsommePizzaserver
 
