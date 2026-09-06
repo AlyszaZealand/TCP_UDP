@@ -28,8 +28,10 @@
 
 ### 13 - FTPapp (C:\Temp\Srv\test.txt) downloads to (C:\Temp\klient\test.txt)
 
-### 14 - DenLangsommePizzaserver (Teori)
+### 14 - FTPappAdvanced (Kan UPLOAD fra Klient til Srv og Download fra Srv til Klient)
 
-### 15 - KaffebarenMedToBaristaer (Teori)
+### 15 - DenLangsommePizzaserver (Teori)
 
-### 16 - DenDramatiskeKlient (Teori)
+### 16 - KaffebarenMedToBaristaer (Teori)
+
+### 17 - DenDramatiskeKlient (Teori)
